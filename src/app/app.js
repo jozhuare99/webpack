@@ -1,13 +1,5 @@
-// import _ from 'lodash'
 import { parseInputs } from './utils/parse-inputs'
 import { inputAreValid } from './utils/input-are-valid'
-
-// function component () {
-//   const element = document.createElement('div')
-//   element.innerHTML = _.join(['Hello', 'webpack'], ' ')
-//   return element
-// }
-// document.body.appendChild(component())
 
 export const run = (alertService, componentService) => {
   alertService.hideError()
