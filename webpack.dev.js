@@ -4,10 +4,24 @@ const { merge } = require('webpack-merge')
 
 module.exports = merge(common, {
   mode: 'development',
-  entry: './src/index.js',
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'public'),
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
     clean: true
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(svg|jpg|png)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[hash].[ext]'
+        }
+      }
+    ]
   }
 })

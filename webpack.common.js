@@ -1,7 +1,10 @@
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    main: './src/index.js',
+    vendor: './src/vendor.js'
+  },
   plugins: [
     new HTMLWebpackPlugin({
       template: './src/index.html',
@@ -12,8 +15,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader']
+        test: /\.html$/i,
+        loader: 'html-loader'
       }
     ]
   }
