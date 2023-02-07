@@ -10,7 +10,7 @@ module.exports = merge(common, {
     filename: '[name].[contenthash].bundled.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true
-  }, 
+  },
   plugins: [new MiniCssExtractPlugin({
     filename: '[name].[contenthash].css'
   })],
