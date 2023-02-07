@@ -7,16 +7,37 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: './src/index.html',
+      template: './src/views/index.html',
       title: 'WebPack Start',
       filename: 'index.html'
+    }),
+    new HTMLWebpackPlugin({
+      template: './src/views/pages/about.html',
+      filename: 'about.html'
     })
   ],
   module: {
     rules: [
       {
         test: /\.html$/i,
-        loader: 'html-loader'
+        loader: 'html-loader',
+        options: {
+          sources: {
+            list: [
+              '...',
+              {
+                tag: 'img',
+                attribute: 'data-src',
+                type: 'src'
+              },
+              {
+                tag: 'link',
+                attribute: 'href',
+                type: 'src'
+              }
+            ]
+          }
+        }
       }
     ]
   }
